@@ -31,3 +31,11 @@ body {
     text-wrap: balance;
   }
 }
+
+h1 {
+  @apply text-4xl font-bold mt-4 mb-4 dark:text-white text-gray-500;
+}
+
+h2 {
+  @apply text-xl mt-2 mb-2;
+}
