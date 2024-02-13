@@ -1,12 +1,17 @@
 "use client"
 
-import { signOut } from "next-auth/react"
-import { Lab, Divider } from "@/components"
-import { weekOne, weekTwo } from "@/lib/labs"
+import { signOut, useSession } from "next-auth/react"
 import { useState } from "react"
 import { ButtonStatusType } from "@/types/Common"
+import { useUserLabsData } from "@/hooks"
+import { UserLabs } from "@/components"
 
 const HomePage = () => {
+  const { data: userData } = useSession()
+  const { isLoading, data, error, mutate } = useUserLabsData({
+    email: userData?.user?.email,
+  })
+
   const [buttonStatus, setButtonStatus] = useState<ButtonStatusType>({
     status: "idle",
   })
@@ -19,7 +24,7 @@ const HomePage = () => {
     try {
       signOut()
     } catch (error) {
-      console.error(error)
+      alert("An error occurred Signing Out. Please try again later")
       setButtonStatus({
         status: "idle",
       })
@@ -47,21 +52,13 @@ const HomePage = () => {
         </div>
       </div>
 
-      <Divider />
-      <div className="mt-4 mb-4">
-        <h2>Week 1</h2>
-        {weekOne.map((lab) => (
-          <Lab key={lab.labId} lab={lab} />
-        ))}
-      </div>
-
-      <Divider />
-      <div className="mt-4 mb-4">
-        <h2>Week 2</h2>
-        {weekTwo.map((lab) => (
-          <Lab key={lab.labId} lab={lab} />
-        ))}
-      </div>
+      <UserLabs
+        isLoading={isLoading}
+        error={error}
+        data={data}
+        mutate={mutate}
+        userData={userData}
+      />
     </div>
   )
 }

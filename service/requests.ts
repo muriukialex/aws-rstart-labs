@@ -1,19 +1,42 @@
+import { LabResponseType } from "@/types/Responses"
 import Request from "./request-config"
+import { LabRequestType } from "@/types/Requests"
 
-export const updateLabStatus = ({
-  photoId,
+export const getLabs = ({ email }: { email?: string }) => {
+  return Request.get<{ labs: Array<LabResponseType> }>({
+    url: "/labs",
+    params: {
+      email,
+    },
+  })
+}
+
+export const saveLab = ({ data }: { data: LabRequestType }) => {
+  return Request.post<{ message: string }>({
+    url: "/labs",
+    data,
+  })
+}
+
+export const updateLab = ({
+  labId,
   data,
 }: {
-  photoId: number
-  data: { title: string }
+  labId: string
+  data: LabResponseType
 }) => {
   return Request.put<
-    Promise<{
-      title: string
-      id: number
-    }>
+    Promise<
+      | {
+          message: string
+          lab: LabResponseType
+        }
+      | {
+          message: string
+        }
+    >
   >({
-    url: `/update-lab`,
+    url: `/labs/${labId}`,
     data,
   })
 }

@@ -33,9 +33,9 @@ body {
 }
 
 h1 {
-  @apply text-4xl font-bold mt-4 mb-4 dark:text-white text-gray-500;
+  @apply text-2xl sm:text-4xl font-bold mt-4 mb-4 dark:text-white text-gray-500;
 }
 
 h2 {
-  @apply text-xl mt-2 mb-2;
+  @apply sm:text-xl text-lg mt-2 mb-2;
 }
