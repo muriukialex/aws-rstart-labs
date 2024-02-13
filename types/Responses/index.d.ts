@@ -1,8 +1,4 @@
 export interface LabResponseType {
-  // email: string
-  // name: string
-  // completed: boolean
-
   completed: boolean
   createdAt: string
   email: string
