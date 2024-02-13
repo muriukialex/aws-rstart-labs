@@ -4,6 +4,7 @@ import { signIn } from "next-auth/react"
 import { useState } from "react"
 import { ButtonStatusType } from "@/types/Common"
 import { GoogleIcon } from "@/components"
+import toast from "react-hot-toast"
 
 const LoginPage = () => {
   const [buttonStatus, setButtonStatus] = useState<ButtonStatusType>({
@@ -17,7 +18,7 @@ const LoginPage = () => {
     try {
       signIn("google")
     } catch (error) {
-      console.error(error)
+      alert("An error occurred Signing In. Please try again later")
       setButtonStatus({
         status: "idle",
       })
