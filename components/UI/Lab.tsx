@@ -90,7 +90,7 @@ const Lab = ({ email, lab, data, mutate }: LabProps) => {
   }, [data, lab.name])
 
   return (
-    <div className="inline-flex items-center">
+    <div className="flex items-center">
       <label
         className="relative flex items-center p-3 rounded-full cursor-pointer"
         htmlFor={lab.name}
