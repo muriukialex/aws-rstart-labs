@@ -1,7 +1,7 @@
+import { metaDataOptions } from "@/lib/metadata-options"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
-import { metaDataOptions } from "@/lib/metadata-options"
 
 import { Analytics } from "@vercel/analytics/react"
 

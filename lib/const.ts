@@ -10,4 +10,3 @@ export function isBrowser(): boolean {
 export const appTitle = "Track AWS r/Start Labs"
 export const appDescription = "Keep Track Of AWS r/Start Labs"
 
-export const baseLink = isBrowser() ? window.location.origin : ""

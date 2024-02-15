@@ -1,8 +1,20 @@
+import {
+  weekEight,
+  weekEleven,
+  weekFive,
+  weekFour,
+  weekNine,
+  weekOne,
+  weekSeven,
+  weekSix,
+  weekTen,
+  weekThree,
+  weekTwo,
+} from "@/lib/labs"
 import { LoadingState } from "@/types/Common"
 import { ErrorResponse, LabResponseType } from "@/types/Responses"
-import Divider from "./Divider"
-import { weekOne, weekTwo, weekThree, weekFour, weekFive, weekSix, weekSeven, weekEight, weekNine, weekTen, weekEleven } from "@/lib/labs"
 import { Session } from "next-auth"
+import Divider from "./Divider"
 import Lab from "./Lab"
 
 interface UserLabsProps {
@@ -30,7 +42,7 @@ const UserLabs = ({
       <div>
         <button
           onClick={() => mutate()}
-          className="p-1 px-4 rounded hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-50"
+          className="rounded p-1 px-4 hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-50"
         >
           Refresh your labs
         </button>
@@ -41,7 +53,7 @@ const UserLabs = ({
   return (
     <div>
       <Divider />
-      <div className="mt-4 mb-4">
+      <div className="mb-4 mt-4">
         <h2>Week 1</h2>
         {weekOne.map((lab) => (
           <Lab
@@ -55,7 +67,7 @@ const UserLabs = ({
       </div>
 
       <Divider />
-      <div className="mt-4 mb-4">
+      <div className="mb-4 mt-4">
         <h2>Week 2</h2>
         {weekTwo.map((lab) => (
           <Lab
@@ -69,7 +81,7 @@ const UserLabs = ({
       </div>
 
       <Divider />
-      <div className="mt-4 mb-4">
+      <div className="mb-4 mt-4">
         <h2>Week 3</h2>
         {weekThree.map((lab) => (
           <Lab
@@ -83,7 +95,7 @@ const UserLabs = ({
       </div>
 
       <Divider />
-      <div className="mt-4 mb-4">
+      <div className="mb-4 mt-4">
         <h2>Week 4</h2>
         {weekFour.map((lab) => (
           <Lab
@@ -97,7 +109,7 @@ const UserLabs = ({
       </div>
 
       <Divider />
-      <div className="mt-4 mb-4">
+      <div className="mb-4 mt-4">
         <h2>Week 5</h2>
         {weekFive.map((lab) => (
           <Lab
@@ -111,7 +123,7 @@ const UserLabs = ({
       </div>
 
       <Divider />
-      <div className="mt-4 mb-4">
+      <div className="mb-4 mt-4">
         <h2>Week 6</h2>
         {weekSix.map((lab) => (
           <Lab
@@ -125,7 +137,7 @@ const UserLabs = ({
       </div>
 
       <Divider />
-      <div className="mt-4 mb-4">
+      <div className="mb-4 mt-4">
         <h2>Week 7</h2>
         {weekSeven.map((lab) => (
           <Lab
@@ -139,7 +151,7 @@ const UserLabs = ({
       </div>
 
       <Divider />
-      <div className="mt-4 mb-4">
+      <div className="mb-4 mt-4">
         <h2>Week 8</h2>
         {weekEight.map((lab) => (
           <Lab
@@ -153,7 +165,7 @@ const UserLabs = ({
       </div>
 
       <Divider />
-      <div className="mt-4 mb-4">
+      <div className="mb-4 mt-4">
         <h2>Week 9</h2>
         {weekNine.map((lab) => (
           <Lab
@@ -167,7 +179,7 @@ const UserLabs = ({
       </div>
 
       <Divider />
-      <div className="mt-4 mb-4">
+      <div className="mb-4 mt-4">
         <h2>Week 10</h2>
         {weekTen.map((lab) => (
           <Lab
@@ -181,7 +193,7 @@ const UserLabs = ({
       </div>
 
       <Divider />
-      <div className="mt-4 mb-4">
+      <div className="mb-4 mt-4">
         <h2>Week 11</h2>
         {weekEleven.map((lab) => (
           <Lab
@@ -193,7 +205,6 @@ const UserLabs = ({
           />
         ))}
       </div>
-
     </div>
   )
 }

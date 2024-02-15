@@ -1,20 +1,21 @@
+import { appDescription, appTitle } from "@/lib/const"
 import type { Metadata } from "next"
-import { appDescription, appTitle, baseLink } from "@/lib/const"
 
 export const metaDataOptions: Metadata = {
+  metadataBase: new URL("https://aws-rstart-labs.vercel.app"),
   openGraph: {
     title: appTitle,
     description: appDescription,
-    url: baseLink,
+    url: "/",
     siteName: appTitle,
     images: [
       {
-        url: baseLink + "/aws-restart-logo.png",
+        url: "/aws-restart-logo.png",
         width: 800,
         height: 600,
       },
       {
-        url: baseLink + "/aws-restart-logo.png",
+        url: "/aws-restart-logo.png",
         width: 1800,
         height: 1600,
         alt: appTitle,
@@ -33,8 +34,8 @@ export const metaDataOptions: Metadata = {
     title: appTitle,
     description: appDescription,
     images: {
-      url: baseLink + "/aws-restart-logo.png",
-      alt: appTitle + " Logo",
+      url: "/aws-restart-logo.png",
+      alt: appTitle,
     },
   },
   robots: {

@@ -1,6 +1,6 @@
+import { LabRequestType } from "@/types/Requests"
 import { LabResponseType } from "@/types/Responses"
 import Request from "./request-config"
-import { LabRequestType } from "@/types/Requests"
 
 export const getLabs = ({ email }: { email?: string }) => {
   return Request.get<{ labs: Array<LabResponseType> }>({

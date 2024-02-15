@@ -1,10 +1,10 @@
 "use client"
 
+import { UserLabs } from "@/components"
+import { useUserLabsData } from "@/hooks"
+import { ButtonStatusType } from "@/types/Common"
 import { signOut, useSession } from "next-auth/react"
 import { useState } from "react"
-import { ButtonStatusType } from "@/types/Common"
-import { useUserLabsData } from "@/hooks"
-import { UserLabs } from "@/components"
 
 const HomePage = () => {
   const { data: userData } = useSession()
@@ -32,7 +32,7 @@ const HomePage = () => {
   }
 
   return (
-    <div className="sm:w-[500px] m-auto mt-8 p-4">
+    <div className="m-auto mt-8 p-4 sm:w-[500px]">
       <div className="flex items-center justify-between">
         <div>
           <h1>AWS r/Start Labs</h1>
@@ -40,7 +40,7 @@ const HomePage = () => {
         <div>
           <button
             data-test="sign-out"
-            className="p-1 px-4 rounded hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-50"
+            className="rounded p-1 px-4 hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-50"
             disabled={buttonStatus.status === "submitting"}
             onClick={() => handleSignOut()}
           >
