@@ -1,4 +1,4 @@
 import { CheckMark, GoogleIcon } from "./Icons"
-import { Divider, UserLabs } from "./UI"
+import { Divider, LoadingLabs, LoadingLogo, UserLabs } from "./UI"
 
-export { CheckMark, Divider, GoogleIcon, UserLabs }
+export { CheckMark, Divider, GoogleIcon, LoadingLabs, LoadingLogo, UserLabs }

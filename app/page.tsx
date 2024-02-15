@@ -1,8 +1,10 @@
 "use client"
 
 import { GoogleIcon } from "@/components"
+import { appTitle } from "@/lib/const"
 import { ButtonStatusType } from "@/types/Common"
 import { signIn } from "next-auth/react"
+import Image from "next/image"
 import { useState } from "react"
 
 const LoginPage = () => {
@@ -27,6 +29,14 @@ const LoginPage = () => {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
       <div>
+        <div className="mb-10 flex items-center justify-center">
+          <Image
+            alt={appTitle}
+            src="/aws-restart-logo.png"
+            width={120}
+            height={50}
+          />
+        </div>
         <div className="mb-4">
           <h2>Track AWS r/Start Labs 👍🏽</h2>
         </div>

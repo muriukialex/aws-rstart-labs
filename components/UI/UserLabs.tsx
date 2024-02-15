@@ -16,6 +16,7 @@ import { ErrorResponse, LabResponseType } from "@/types/Responses"
 import { Session } from "next-auth"
 import Divider from "./Divider"
 import Lab from "./Lab"
+import { LoadingLabs } from "./Loading"
 
 interface UserLabsProps {
   isLoading: LoadingState
@@ -34,7 +35,7 @@ const UserLabs = ({
   userData,
 }: UserLabsProps) => {
   if (isLoading.status === "loading") {
-    return <div>Fetching your labs...</div>
+    return <LoadingLabs />
   }
 
   if (error !== null) {

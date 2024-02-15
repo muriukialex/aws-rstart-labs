@@ -1,5 +1,6 @@
 "use client"
 
+import { LoadingLogo } from "@/components"
 import { links } from "@/lib/const"
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
@@ -14,7 +15,9 @@ const AuthGuardProvider = ({ children }: { children: React.ReactNode }) => {
   })
 
   if (status === "loading") {
-    return <div>Loading...</div>
+    return (
+      <LoadingLogo />
+    )
   }
 
   return children
