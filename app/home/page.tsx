@@ -39,6 +39,7 @@ const HomePage = () => {
         </div>
         <div>
           <button
+            data-test="sign-out"
             className="p-1 px-4 rounded hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-50"
             disabled={buttonStatus.status === "submitting"}
             onClick={() => handleSignOut()}

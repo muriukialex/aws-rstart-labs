@@ -1,12 +1,12 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
+import { metaDataOptions } from "@/lib/metadata-options"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Track AWS r/Start Labs",
-  description: "Keep Track Of AWS r/Start Labs",
+  ...metaDataOptions,
 }
 
 export default function RootLayout({
