@@ -108,7 +108,7 @@ const Lab = ({ email, lab, data, mutate }: LabProps) => {
         </span>
       </label>
       <label
-        className="mt-px cursor-pointer select-none font-light text-gray-200"
+        className="mt-px cursor-pointer select-none font-light text-black dark:text-gray-200"
         htmlFor={lab.name}
       >
         {lab.name}
