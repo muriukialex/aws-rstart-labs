@@ -11,14 +11,14 @@ export const metaDataOptions: Metadata = {
     images: [
       {
         url: "/aws-restart-logo.png",
-        width: 800,
-        height: 600,
+        width: 128,
+        height: 75,
+        alt: appTitle,
       },
       {
         url: "/aws-restart-logo.png",
-        width: 1800,
-        height: 1600,
-        alt: appTitle,
+        width: 800,
+        height: 600,
       },
     ],
     locale: "en_US",
@@ -27,7 +27,7 @@ export const metaDataOptions: Metadata = {
   title: appTitle,
   description: appDescription,
   verification: {
-    google: process.env.GOOGLE_SITE_VERIFICATION_ID!,
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION_ID!,
   },
   twitter: {
     card: "summary_large_image",
