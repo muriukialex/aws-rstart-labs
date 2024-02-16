@@ -1,6 +1,6 @@
-import { NextResponse } from "next/server"
 import Lab from "@/models/Lab"
 import { LabRequestType } from "@/types/Requests"
+import { NextResponse } from "next/server"
 
 export async function PUT(
   req: Request,

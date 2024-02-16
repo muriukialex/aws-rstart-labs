@@ -1,10 +1,11 @@
 "use client"
 
-import { signIn } from "next-auth/react"
-import { useState } from "react"
-import { ButtonStatusType } from "@/types/Common"
 import { GoogleIcon } from "@/components"
-import toast from "react-hot-toast"
+import { appTitle } from "@/lib/const"
+import { ButtonStatusType } from "@/types/Common"
+import { signIn } from "next-auth/react"
+import Image from "next/image"
+import { useState } from "react"
 
 const LoginPage = () => {
   const [buttonStatus, setButtonStatus] = useState<ButtonStatusType>({
@@ -28,14 +29,23 @@ const LoginPage = () => {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
       <div>
+        <div className="mb-10 flex items-center justify-center">
+          <Image
+            alt={appTitle}
+            src="/aws-restart-logo.png"
+            width={120}
+            height={50}
+          />
+        </div>
         <div className="mb-4">
           <h2>Track AWS r/Start Labs 👍🏽</h2>
         </div>
         <div>
           <button
+            data-test="sign-in-with-google"
             onClick={() => handleSignIn()}
             disabled={buttonStatus.status === "submitting"}
-            className="w-full rounded-md border bg-white dark:bg-black dark:text-white p-4 text-center text-sm text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+            className="w-full rounded-md border bg-white p-4 text-center text-sm text-gray-500 hover:bg-gray-100 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-black dark:text-white dark:hover:bg-gray-900"
           >
             <GoogleIcon className="mr-2 inline size-5" />
             {buttonStatus.status === "submitting"

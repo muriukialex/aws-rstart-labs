@@ -1,10 +1,10 @@
 import type { LabType } from "@/lib/labs"
-import toast from "react-hot-toast"
-import { CheckMark } from ".."
-import { useState, useEffect, ChangeEvent } from "react"
-import { ErrorResponse, LabResponseType } from "@/types/Responses"
 import { saveLab, updateLab } from "@/service/requests"
 import { LabRequestType } from "@/types/Requests"
+import { ErrorResponse, LabResponseType } from "@/types/Responses"
+import { ChangeEvent, useEffect, useState } from "react"
+import toast from "react-hot-toast"
+import { CheckMark } from ".."
 
 interface LabProps {
   email?: string | null
@@ -92,22 +92,23 @@ const Lab = ({ email, lab, data, mutate }: LabProps) => {
   return (
     <div className="flex items-center">
       <label
-        className="relative flex items-center p-3 rounded-full cursor-pointer"
+        className="relative flex cursor-pointer items-center rounded-full p-3"
         htmlFor={lab.name}
       >
         <input
+          data-test={`lab-checkbox-${lab.labId}`}
           type="checkbox"
-          className="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-gray-900 checked:bg-blue-700 checked:before:bg-gray-900 dark:checked:border-gray-200 dark:checked:before:bg-gray-200 hover:before:opacity-10"
+          className="before:content[''] border-blue-gray-200 before:bg-blue-gray-500 peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border transition-all before:absolute before:left-2/4 before:top-2/4 before:block before:h-12 before:w-12 before:-translate-x-2/4 before:-translate-y-2/4 before:rounded-full before:opacity-0 before:transition-opacity checked:border-gray-900 checked:bg-blue-700 checked:before:bg-gray-900 hover:before:opacity-10 dark:checked:border-gray-200 dark:checked:before:bg-gray-200"
           id={lab.name}
           onChange={(e) => handleTrackLab({ event: e, lab })}
           checked={completed}
         />
-        <span className="absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
+        <span className="pointer-events-none absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
           <CheckMark />
         </span>
       </label>
       <label
-        className="mt-px font-light text-gray-200 cursor-pointer select-none"
+        className="mt-px cursor-pointer select-none font-light text-black dark:text-gray-200"
         htmlFor={lab.name}
       >
         {lab.name}
