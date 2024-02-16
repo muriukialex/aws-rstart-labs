@@ -5,10 +5,10 @@ import { faker } from "@faker-js/faker"
 describe("User Labs", () => {
   beforeEach(() => {
     cy.visit("/")
-    cy.stubLogin()
   })
 
-  it("can successfully track user's lab", () => {
+  it.only("can successfully track user's lab", () => {
+    cy.stubLogin()
     cy.intercept("GET", "/api/labs?**", { fixture: "empty-user-labs" })
     cy.intercept("POST", "/api/labs", {
       statusCode: 201,
