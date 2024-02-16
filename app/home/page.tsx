@@ -40,7 +40,7 @@ const HomePage = () => {
         <div>
           <button
             data-test="sign-out"
-            className="rounded p-1 px-4 hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-50"
+            className="rounded p-1 px-4 hover:bg-gray-400 disabled:cursor-not-allowed disabled:opacity-50 dark:hover:bg-gray-700"
             disabled={buttonStatus.status === "submitting"}
             onClick={() => handleSignOut()}
           >

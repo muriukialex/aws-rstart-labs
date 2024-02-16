@@ -31,10 +31,18 @@ const LoginPage = () => {
       <div>
         <div className="mb-10 flex items-center justify-center">
           <Image
+            className="dark:hidden" // shown in light theme
+            alt={appTitle}
+            src="/aws-restart-logo-light.png"
+            width={128}
+            height={75}
+          />
+          <Image
+            className="hidden dark:block" // shown in dark theme
             alt={appTitle}
             src="/aws-restart-logo.png"
-            width={120}
-            height={50}
+            width={128}
+            height={75}
           />
         </div>
         <div className="mb-4">
