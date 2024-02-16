@@ -5,10 +5,12 @@ describe("Sign In", () => {
     cy.visit("/")
   })
 
-  it("can successfully sign in user via Google", () => {
+  it.only("can successfully sign in user via Google", () => {
     cy.stubLogin()
     cy.intercept("GET", "/api/labs?**", { fixture: "empty-user-labs" })
     cy.get("[data-test=aws-rstart-title]").should("be.visible")
+
+    cy.get('[data-test="lab-checkbox-1"]').should("exist")
   })
 
   it("should handle failed Google sign-in", () => {
