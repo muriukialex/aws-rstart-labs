@@ -38,6 +38,10 @@ jobs:
           rm package-lock.json
       - name: Install Dependencies
         run: npm install
+      - name: Start app
+        run: npm run dev
+      - name: Run tests
+        run: npm run cypress:run
 
   Deploy-Production:
     runs-on: ubuntu-latest

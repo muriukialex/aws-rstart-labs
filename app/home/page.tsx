@@ -35,7 +35,7 @@ const HomePage = () => {
     <div className="m-auto mt-8 p-4 sm:w-[500px]">
       <div className="flex items-center justify-between">
         <div>
-          <h1>AWS r/Start Labs</h1>
+          <h1 data-test="aws-rstart-title">AWS r/Start Labs</h1>
         </div>
         <div>
           <button

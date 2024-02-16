@@ -4,25 +4,35 @@ import { faker } from "@faker-js/faker"
 
 describe("User Labs", () => {
   beforeEach(() => {
-    cy.setCookie("next-auth.session-token", faker.string.uuid())
-    cy.setCookie("next-auth.callback-url", "/home")
-    cy.setCookie("next-auth.csrf-token", faker.string.uuid())
-
-    cy.visit("/home")
+    cy.visit("/")
+    cy.stubLogin()
   })
 
-  it("can successfully track a lab", () => {
-    cy.intercept("POST", "/labs", {
+  it("can successfully track user's lab", () => {
+    cy.intercept("GET", "/api/labs?**", { fixture: "empty-user-labs" })
+    cy.intercept("POST", "/api/labs", {
       statusCode: 201,
-      body: { message: "Lab successfully created" },
-    }).as("successfullyTrackedLab")
+      body: { message: "Lab tracked successfully" },
+    })
 
     cy.get('[data-test="lab-checkbox-1"]').first().check()
-    cy.wait("@successfullyTrackedLab")
     cy.contains("Lab tracked successfully").should("exist")
   })
 
-  it("can successfully update a lab status", () => {
+  it("can show error message if lab tracking is unsuccessful", () => {
+    cy.intercept("GET", "/api/labs?**", { fixture: "empty-user-labs" })
+    cy.intercept("POST", "/api/labs", {
+      statusCode: 500,
+      body: {
+        message: "Error occurred tracking this lab",
+      },
+    })
+
+    cy.get('[data-test="lab-checkbox-1"]').first().check()
+    cy.contains("Failed to perform request, please try again.").should("exist")
+  })
+
+  it("can successfully update lab status", () => {
     const updatedLab = {
       _id: faker.string.uuid(),
       email: faker.internet.email(),
@@ -33,37 +43,26 @@ describe("User Labs", () => {
       __v: 0,
     }
 
-    cy.intercept("PUT", "/labs", {
+    cy.intercept("GET", "/api/labs?**", { fixture: "user-labs" })
+    cy.intercept("PUT", "/api/labs/**", {
       statusCode: 201,
-      body: { message: "Lab successfully updated", lab: updatedLab },
-    }).as("successfullyUpdatedLabStatus")
+      body: { message: "Lab status updated successfully", lab: updatedLab },
+    })
 
     cy.get('[data-test="lab-checkbox-1"]').first().check()
-    cy.wait("@successfullyUpdatedLabStatus")
     cy.contains("Lab status updated successfully").should("exist")
   })
 
-  it("can show an error if lab tracking is unsuccessful", () => {
-    cy.intercept("POST", "/labs", {
+  it("can show error message if lab status update is unsuccessful", () => {
+    cy.intercept("GET", "/api/labs?**", { fixture: "user-labs" })
+    cy.intercept("PUT", "/api/labs/**", {
       statusCode: 500,
-      body: "Internal Server Error",
-    }).as("failedLabTracking")
+      body: {
+        message: "An error occurred updating this lab",
+      },
+    })
 
     cy.get('[data-test="lab-checkbox-1"]').first().check()
-
-    cy.wait("@failedLabTracking")
-    cy.contains("Error occurred tracking this lab").should("exist")
-  })
-
-  it("can show an error if lab status update is unsuccessful", () => {
-    cy.intercept("PUT", "/labs/*", {
-      statusCode: 500,
-      body: "Internal Server Error",
-    }).as("failedLabStatusUpdate")
-
-    cy.get('[data-test="lab-checkbox-1"]').first().check()
-
-    cy.wait("@failedLabStatusUpdate")
-    cy.contains("An error occurred updating this lab").should("exist")
+    cy.contains("Failed to perform request, please try again.").should("exist")
   })
 })

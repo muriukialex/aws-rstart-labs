@@ -1,20 +1,22 @@
-// ***********************************************************
-// This example support/e2e.ts is processed and
-// loaded automatically before your test files.
-//
-// This is a great place to put global configuration and
-// behavior that modifies Cypress.
-//
-// You can change the location of this file or turn off
-// automatically serving support files with the
-// 'supportFile' configuration option.
-//
-// You can read more here:
-// https://on.cypress.io/configuration
-// ***********************************************************
+// put e2e only commands and plugins here
+// better to import plugins where relevant, speeds up test warmup
+// import '@testing-library/cypress/add-commands'
 
-// Import commands.js using ES2015 syntax:
+import "@bahmutov/cy-api"
+import "cypress-map"
+import "cypress-v10-preserve-cookie"
 import "./commands"
 
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
+//@ts-ignore
+Cypress.Commands.add("stubLogin", () => {
+  cy.intercept("/api/auth/session", { fixture: "auth-session.json" }).as(
+    "session",
+  )
+
+  cy.setCookie(
+    "next-auth.session-token",
+    "a valid cookie from your browser session",
+  )
+  cy.visit("/home")
+  cy.wait("@session")
+})
