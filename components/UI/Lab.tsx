@@ -98,7 +98,7 @@ const Lab = ({ email, lab, data, mutate }: LabProps) => {
         <input
           data-test={`lab-checkbox-${lab.labId}`}
           type="checkbox"
-          className="before:content[''] border-blue-gray-200 before:bg-blue-gray-500 peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border transition-all before:absolute before:left-2/4 before:top-2/4 before:block before:h-12 before:w-12 before:-translate-x-2/4 before:-translate-y-2/4 before:rounded-full before:opacity-0 before:transition-opacity checked:border-gray-900 checked:bg-blue-700 checked:before:bg-gray-900 hover:before:opacity-10 dark:checked:border-gray-200 dark:checked:before:bg-gray-200"
+          className="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-gray-900 transition-all before:absolute before:left-2/4 before:top-2/4 before:block before:h-12 before:w-12 before:-translate-x-2/4 before:-translate-y-2/4 before:rounded-full before:opacity-0 before:transition-opacity checked:border-gray-900 checked:bg-blue-700 checked:before:bg-gray-900 hover:before:opacity-10 dark:border-white dark:checked:border-gray-200 dark:checked:before:bg-gray-200"
           id={lab.name}
           onChange={(e) => handleTrackLab({ event: e, lab })}
           checked={completed}

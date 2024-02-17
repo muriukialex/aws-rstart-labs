@@ -7,8 +7,8 @@ const LoadingLabs = () => {
           {loadingItems.map((_, idx) => (
             <li
               key={idx}
-              className="h-10 w-full rounded bg-gray-200 dark:bg-gray-700"
-            ></li>
+              className="h-10 w-full rounded bg-gray-500 dark:bg-gray-700"
+            />
           ))}
         </ul>
       </div>
