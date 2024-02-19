@@ -14,6 +14,14 @@ pnpm dev
 bun dev
 ```
 
+If you are using Docker:
+
+```bash
+docker build -t <image-name> .
+
+docker run --name <container-name> -p 3000:3000 -d <image-name>
+```
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
