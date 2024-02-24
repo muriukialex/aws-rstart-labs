@@ -1,8 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Keep Track of AWS r/Start Labs
+
+- This application is designed to help AWS r/Start students to keep track of their AWS r/Start Labs.
+
+## Overview
+
+### Sign In
+Sign In with Google
+
+![sign-in(light)](https://github.com/muriukialex/aws-rstart-labs/assets/51236424/d185ecd5-0b85-47e4-8a19-8f8d06cd2d1a)
+
+### Track Labs as Completed
+Light Theme Option 
+
+![Screenshot 2024-02-24 192722](https://github.com/muriukialex/aws-rstart-labs/assets/51236424/ddda199b-b43d-42b6-b6ff-e230567c76ac)
+
+Dark Theme Option
+
+
+![Screenshot 2024-02-24 192910](https://github.com/muriukialex/aws-rstart-labs/assets/51236424/c54117b1-8f43-44ba-93ae-918200c8888a)
+
+### Update Lab Completed Status
+
+![Screenshot 2024-02-24 193020](https://github.com/muriukialex/aws-rstart-labs/assets/51236424/e14890c5-acea-41f4-ae2f-92ceb8a68d1a)
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the project
+ ```bash
+ git clone https://github.com/muriukialex/aws-rstart-labs.git
+```
+
+2. Install dependencies
+```bash
+npm install
+```
+
+3. Update your `.env.local` file with your enviroment variables which also includes a [MONGODB_URI](https://www.mongodb.com/basics/mongodb-connection-string#:~:text=How%20to%20get%20your%20MongoDB,connection%20string%20for%20your%20cluster.)
+```bash
+cp .env.example .env.local
+```
+NB: Ensure you update your environent variables before starting the server
+
+3. Run the development server:
 
 ```bash
 npm run dev
@@ -16,21 +55,19 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+If you are using Docker:
+Ensure you have [make](https://www.gnu.org/software/make/manual/make.html) installed `make --version`
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Build and run the Docker container
+```bash
+make start-app
+```
 
-## Learn More
+- Tear down the Docker container
+```bash
+make tear-app
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Contributing 
+- See [CONTRIBUTING.md](https://github.com/muriukialex/aws-rstart-labs/main/CONTRIBUTING.md) instructions on how to contribute.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
