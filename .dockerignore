@@ -1,0 +1,26 @@
+# Include files that you wouldn't want included in your container 
+
+**/.classpath
+**/.dockerignore
+**/.env
+**/.git
+**/.gitignore
+**/.vs
+**/.vscode
+**/.next
+**/.cache
+**/*.*proj.user
+**/*.dbmdl
+**/*.jfm
+**/charts
+**/docker-compose*
+**/compose*
+**/Dockerfile*
+**/node_modules
+**/npm-debug.log
+**/obj
+**/build
+**/dist
+LICENSE
+README.md
+**/public/__env.js
