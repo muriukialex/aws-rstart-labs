@@ -1,7 +1,5 @@
 FROM node:18-alpine as base
 
-RUN apk add --no-cache g++ make py3-pip libc6-compat
-
 WORKDIR /app
 
 COPY package*.json ./
@@ -22,10 +20,7 @@ WORKDIR /app
 ENV NODE_ENV=production
 
 # Install only production dependencies
-RUN npm ci --only=production
-
-# Install pm2 process manager
-RUN npm install pm2@latest -g
+RUN npm ci --omit=dev
 
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nextjs -u 1001
@@ -38,7 +33,8 @@ COPY --from=builder --chown=nextjs:nodejs /app/next.config.mjs ./
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/.env.production ./.env
+COPY --from=builder /app/.env.local ./.env
+COPY --from=builder /app/entrypoint.sh ./entrypoint.sh
 
 EXPOSE 3000
 
