@@ -58,5 +58,5 @@ make tear-app
 ```
 
 ## Contributing 
-- See [CONTRIBUTING.md](https://github.com/muriukialex/aws-rstart-labs/blob/main/CONTRIBUTING.md) instructions on how to contribute.
+- See [CONTRIBUTING.md](https://github.com/muriukialex/aws-rstart-labs/main/CONTRIBUTING.md) instructions on how to contribute.
 
