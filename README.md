@@ -5,12 +5,23 @@
 ## Overview
 
 ### Sign In
-- Sign In with Google
+Sign In with Google
+
+![sign-in(light)](https://github.com/muriukialex/aws-rstart-labs/assets/51236424/d185ecd5-0b85-47e4-8a19-8f8d06cd2d1a)
 
 ### Track Labs as Completed
+Light Theme Option 
+
+![Screenshot 2024-02-24 192722](https://github.com/muriukialex/aws-rstart-labs/assets/51236424/ddda199b-b43d-42b6-b6ff-e230567c76ac)
+
+Dark Theme Option
+
+
+![Screenshot 2024-02-24 192910](https://github.com/muriukialex/aws-rstart-labs/assets/51236424/c54117b1-8f43-44ba-93ae-918200c8888a)
 
 ### Update Lab Completed Status
 
+![Screenshot 2024-02-24 193020](https://github.com/muriukialex/aws-rstart-labs/assets/51236424/e14890c5-acea-41f4-ae2f-92ceb8a68d1a)
 
 ## Getting Started
 
