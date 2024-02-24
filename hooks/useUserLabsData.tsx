@@ -17,16 +17,14 @@ const useUserLabsData = ({ email }: { email?: string | null }) => {
       try {
         const response = await getLabs({ email })
         const responseData = response.data
+        setError(null) // update the error value to null
         setData(responseData)
-        setIsLoading({
-          status: "idle",
-        })
       } catch (error) {
         const errorResponse = error as ErrorResponse
         if (errorResponse) {
           setError(errorResponse)
         }
-
+      } finally {
         setIsLoading({
           status: "idle",
         })
